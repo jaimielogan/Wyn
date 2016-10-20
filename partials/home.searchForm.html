@@ -1,0 +1,25 @@
+<div class="container row">
+
+  <p>
+    {{scope.view.categories}}
+  </p>
+
+  <select class="browser-default dropDown col s3 sort" ng-model="view.sort" ng-options="option.name for option in view.sortOptions">
+    <option value="" disabled selected>Sort By:</option>
+  </select>
+
+  {{view.sort}}
+  {{view.sortOptions.order}}
+
+  <select class="browser-default dropDown col s3">
+    <option value="" disabled selected>Search By Category</option>
+    <option value="1">Option 1</option>
+    <option value="2">Option 2</option>
+    <option value="3">Option 3</option>
+  </select>
+
+  <div class="input-field col s4 search">
+    <input placeholder="Search By Name" id="first_name" type="text" ng-model="view.search">
+  </div>
+
+</div>

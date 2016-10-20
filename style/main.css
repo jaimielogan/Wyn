@@ -1,0 +1,65 @@
+/*nav*/
+.cartQuantityNav{
+  padding: 0 5px 0 0;
+}
+
+/*Title Header*/
+.titleHeader{
+  text-align: center;
+  border-bottom: 1px solid lightgrey;
+  padding-bottom: 25px;
+}
+
+.wyn{
+  font-size: 80px;
+  font-family: 'Arimo', sans-serif;
+}
+
+.brand{
+  font-weight: 100;
+}
+
+/*Search Form*/
+.dropDown,
+.search{
+  margin-top: 25px;
+}
+
+.dropDown{
+  margin-right: 50px;
+}
+
+.row .col.sort{
+  margin-left:25px;
+}
+
+/*Wine List*/
+.wineList{
+  padding-left: 30px;
+}
+
+.wine{
+  min-height: 410px;
+  min-width: 275px;
+  border: 1px solid black;
+  margin: 50px;
+  text-align: center;
+}
+
+.wineImage{
+  height: 300px;
+  width: 240px;
+}
+
+.hundred{
+  font-size: 20px;
+}
+
+.lightweight{
+  font-weight: 300;
+}
+
+/*Quantity and add to cart*/
+.addCart{
+  margin: 10px 0;
+}
