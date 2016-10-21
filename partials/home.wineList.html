@@ -1,10 +1,9 @@
 <search-form-display></search-form-display>
 
 <div class="wineList row container">
-  <p>
-    {{view.sortOptions.order}}
-  </p>
-  <div ng-repeat="wine in view.wineData | filter: view.search | orderBy: view.sort: view.sortOptions.order">
+
+  <div ng-repeat="wine in view.wineData | filter: view.search | filter: view.selectCategory.categoryName | orderBy: view.sort.value">
+
     <wine-individual-display></wine-individual-display>
   </div>
 </div>

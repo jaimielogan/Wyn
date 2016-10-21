@@ -17,6 +17,9 @@
 
 .brand{
   font-weight: 100;
+  width: 80%;
+  text-align: center;
+  margin-left: 10%;
 }
 
 /*Search Form*/
@@ -38,17 +41,21 @@
   padding-left: 30px;
 }
 
+.wineImage{
+  height: 300px;
+  width: 240px;
+}
+
 .wine{
-  min-height: 410px;
+  min-height: 450px;
   min-width: 275px;
   border: 1px solid black;
   margin: 50px;
   text-align: center;
 }
 
-.wineImage{
-  height: 300px;
-  width: 240px;
+.wineName{
+  height: 60px;
 }
 
 .hundred{

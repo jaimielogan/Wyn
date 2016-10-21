@@ -76,7 +76,7 @@ angular.module('wyn')
       "boozeScale": 241,
       "price": 1800,
       "inStock": true,
-      "rating": 3,
+      "rating": 93,
       "imageUrl": "../images/TIMT-Syrah.jpg",
       "__v": 0,
       "categories": ["red","earthy","rich"]
@@ -123,7 +123,14 @@ angular.module('wyn')
   ];
   this.getCategories = function(){
     var categories = [];
-    
+    for (var i = 0; i < this.wineData.length; i++) {
+      for (var j = 0; j < this.wineData[j].categories.length; j++) {
+        categories.push({
+          categoryName: this.wineData[i].categories[j]
+        });
+      }
+    }
+    return categories;
   };
   // cart
   this.cart = [];

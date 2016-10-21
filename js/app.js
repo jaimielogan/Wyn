@@ -1,4 +1,4 @@
-angular.module('wyn', ['ngRoute', 'wynDirective']);
+angular.module('wyn', ['ngRoute', 'wynDirective', 'angular.filter']);
 
 angular.module('wyn')
 .config(function($routeProvider, $locationProvider){

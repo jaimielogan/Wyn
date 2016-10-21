@@ -1,0 +1,9 @@
+.cartHeader{
+  border-bottom: 1px solid lightgrey;
+  width: 500px;
+}
+
+.cartBrand{
+  font-weight: 100;
+  margin: 20px;
+}

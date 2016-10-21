@@ -1,4 +1,8 @@
 angular.module('wyn')
+.controller('NavController', function($scope, wynService){
+
+})
+
 .controller('HomeController', function($scope, wynService){
   // setup
   $scope.view = {};
@@ -7,8 +11,8 @@ angular.module('wyn')
   $scope.view.wineData = wynService.wineData;
   // display
   $scope.view.sortOptions = [
-    {order: true, name: 'Price Descending'},
-    {order: false, name: 'Price Ascending'}
+    {name: 'Price Descending', value:'+price'},
+    {name: 'Price Ascending', value:'-price'}
   ];
   $scope.view.categories = wynService.getCategories();
   // wine details
@@ -27,6 +31,7 @@ angular.module('wyn')
     console.log('scope.view.cartTotal', $scope.view.cartTotal);
   };
 })
-.controller('NavController', function($scope, wynService){
 
+.controller('CartController', function($scope, wynService){
+  
 });

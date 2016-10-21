@@ -22,7 +22,8 @@ angular.module('wynDirective', [])
 .directive('searchFormDisplay', function(){
   return {
     restrict: 'E',
-    templateUrl: '../partials/home.searchForm.html'
+    templateUrl: '../partials/home.searchForm.html',
+    require: '^wineListDisplay'
   };
 })
 .directive('wineIndividualDisplay', function(){
@@ -30,4 +31,12 @@ angular.module('wynDirective', [])
     restrict: 'E',
     templateUrl: '../partials/home.wineIndividual.html'
     };
-});
+})
+//cart split
+.directive('cartDisplay', function(){
+  return {
+    restrict: 'E',
+    templateURL: '../partials/cart.cartdisplay.html',
+    controller: 'CartController'
+  }
+})
