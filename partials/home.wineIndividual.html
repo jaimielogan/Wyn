@@ -1,14 +1,13 @@
 <div class="col s3 wine">
   <img class="wineImage" src="{{wine.imageUrl}}" alt="" />
   <h5 class="lightweight wineName">{{wine.name}}</h5>
-  <h6>{{wine.price | fractionCurrency | currency}}</h6>
   <div ng-click="toggleDetails(wine._id)">
     <img src="../images/down_arrow.png" class="arrow" alt="down arrow" ng-hide="view.viewDetails[wine.id]"/>
     <img src="../images/up_arrow.png" class="arrow" alt="up arrow" ng-show="view.viewDetails[wine.id]"/>
   </div>
 
   <div class="wineDetails" ng-show="view.viewDetails[wine._id]">
-    <form ng-submit="addToCart(wine._id, wine.price)">
+    <form ng-submit="addToCart(wine._id)">
       <p class="lightweight">
         {{wine.description}}
       </p>

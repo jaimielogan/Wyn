@@ -33,10 +33,9 @@ angular.module('wynDirective', [])
     };
 })
 //cart split
-.directive('cartDisplay', function(){
+.directive('cartPageDisplay', function(){
   return {
     restrict: 'E',
-    templateURL: '../partials/cart.cartdisplay.html',
-    controller: 'CartController'
-  }
-})
+    templateUrl: '../partials/cart.cartdisplay.html'
+    };
+});

@@ -14,7 +14,8 @@ angular.module('wyn')
     templateUrl: '../partials/contact.html'
   })
   .when('/cart', {
-    templateUrl: '../partials/cart.html'
+    templateUrl: '../partials/cart.html',
+    controller: 'CartController'
   });
   $locationProvider.html5Mode(true);
 });

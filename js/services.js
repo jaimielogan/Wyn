@@ -12,7 +12,7 @@ angular.module('wyn')
       "inStock": true,
       "rating": 87,
       "imageUrl": "../images/Underwood_Pinot_Noir.jpg",
-      "__v": 0,
+      "quantity": 0,
       "categories": ["red", "earthy"]
     },
 
@@ -26,7 +26,7 @@ angular.module('wyn')
       "inStock": true,
       "rating": 90,
       "imageUrl": "../images/Alchemist_Chardonnay.jpg",
-      "__v": 0,
+      "quantity": 0,
       "categories": ["white", "citrus"]
     },
     {
@@ -39,7 +39,7 @@ angular.module('wyn')
       "inStock": true,
       "rating": 88,
       "imageUrl": "../images/Alchemist_Pinot_Noir.jpg",
-      "__v": 0,
+      "quantity": 0,
       "categories": ["red", "fruity"]
     },
     {
@@ -52,7 +52,7 @@ angular.module('wyn')
       "inStock": true,
       "rating": 80,
       "imageUrl": "../images/Underwood_Rose.jpg",
-      "__v": 0,
+      "quantity": 0,
       "categories": ["rose","fruity"]
     },
     {
@@ -65,7 +65,7 @@ angular.module('wyn')
       "inStock": true,
       "rating": 87,
       "imageUrl": "../images/Kings_Ridge_Pinot_Noir.jpg",
-      "__v": 0,
+      "quantity": 0,
       "categories": ["red", "fruity"]
     },
     {
@@ -78,7 +78,7 @@ angular.module('wyn')
       "inStock": true,
       "rating": 93,
       "imageUrl": "../images/TIMT-Syrah.jpg",
-      "__v": 0,
+      "quantity": 0,
       "categories": ["red","earthy","rich"]
     },
     {
@@ -91,7 +91,7 @@ angular.module('wyn')
       "inStock": true,
       "rating": 87,
       "imageUrl": "../images/Kings_Ridge_Pinot_Gris.jpg",
-      "__v": 0,
+      "quantity": 0,
       "categories": ["white", "citrus"]
     },
     {
@@ -104,7 +104,7 @@ angular.module('wyn')
       "inStock": true,
       "rating": 87,
       "imageUrl": "../images/Kings_Ridge_Riesling.jpg",
-      "__v": 0,
+      "quantity": 0,
       "categories": ["white", "floral"]
     },
     {
@@ -117,7 +117,7 @@ angular.module('wyn')
       "inStock": true,
       "rating": 92,
       "imageUrl": "../images/TIMT-Malbec.jpg",
-      "__v": 0,
+      "quantity": 0,
       "categories": ["red", "fruity"]
     }
   ];
@@ -133,30 +133,25 @@ angular.module('wyn')
     return categories;
   };
   // cart
-  this.cart = [];
-  this.addToCart = function(wineID, quantity, price){
-    for (var i = 0; i < this.cart.length; i++) {
-      if(wineID == this.cart[i].wineID){
-        this.cart[i].quantity  += Number(quantity);
+  this.addToCart = function(wineID, quantity){
+    for (var i = 0; i < this.wineData.length; i++) {
+      if(wineID == this.wineData[i]._id){
+        this.wineData[i].quantity  += Number(quantity);
         return;
       }
     }
-    this.cart.push({
-      wineID: wineID,
-      quantity: Number(quantity),
-      subtotal: Number(quantity)* (price/100)
-    });
   };
   this.cartSubtotal = function(){
     var quantityTotal = 0;
     var totalCost = 0;
-    for (var i = 0; i < this.cart.length; i++) {
-      quantityTotal += this.cart[i].quantity;
-      totalCost += this.cart[i].subtotal;
+    for (var i = 0; i < this.wineData.length; i++) {
+      quantityTotal += this.wineData[i].quantity;
+      totalCost += (this.wineData[i].price/100) * this.wineData[i].quantity;
     }
     return {
       quantityTotal: quantityTotal,
       totalCost: totalCost
     };
   };
+
 });

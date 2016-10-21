@@ -23,15 +23,17 @@ angular.module('wyn')
   // cart
   $scope.view.cart = wynService.cart;
   $scope.view.cartTotal = {};
-  $scope.addToCart = function(wineID, price){
+  $scope.addToCart = function(wineID){
     var quantity = $scope.view.addQuantity;
-    wynService.addToCart(wineID,quantity,price);
+    wynService.addToCart(wineID,quantity);
     $scope.toggleDetails(wineID);
     $scope.view.cartTotal = wynService.cartSubtotal();
-    console.log('scope.view.cartTotal', $scope.view.cartTotal);
   };
 })
 
 .controller('CartController', function($scope, wynService){
-  
+  $scope.view = {};
+  // wine data
+  $scope.view.wineData = wynService.wineData;
+  $scope.view.cartTotal = wynService.cartSubtotal();
 });
