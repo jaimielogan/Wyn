@@ -145,13 +145,30 @@ angular.module('wyn')
     var quantityTotal = 0;
     var totalCost = 0;
     for (var i = 0; i < this.wineData.length; i++) {
-      quantityTotal += this.wineData[i].quantity;
+      quantityTotal += Number(this.wineData[i].quantity);
       totalCost += (this.wineData[i].price/100) * this.wineData[i].quantity;
     }
     return {
-      quantityTotal: quantityTotal,
+      quantityTotal: Math.floor(Number(quantityTotal)),
       totalCost: totalCost
     };
+  };
+
+  this.updateCart = function(wineID, quantity){
+    for (var i = 0; i < this.wineData.length; i++) {
+      if(wineID == this.wineData[i]._id){
+        this.wineData[i].quantity = Number(quantity);
+        return;
+      }
+    }
+  };
+
+  this.removeFromCart = function(wineID){
+    for (var i = 0; i < this.wineData.length; i++) {
+      if(wineID == this.wineData[i]._id){
+        this.wineData[i].quantity = 0;
+      }
+    }
   };
 
 });

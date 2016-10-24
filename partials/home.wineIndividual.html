@@ -1,9 +1,9 @@
 <div class="col s3 wine">
-  <img class="wineImage" src="{{wine.imageUrl}}" alt="" />
-  <h5 class="lightweight wineName">{{wine.name}}</h5>
+  <img ng-click="toggleDetails(wine._id)" class="wineImage" src="{{wine.imageUrl}}" alt="" />
+  <h5 ng-click="toggleDetails(wine._id)" class="lightweight wineName">{{wine.name}}</h5>
   <div ng-click="toggleDetails(wine._id)">
-    <img src="../images/down_arrow.png" class="arrow" alt="down arrow" ng-hide="view.viewDetails[wine.id]"/>
-    <img src="../images/up_arrow.png" class="arrow" alt="up arrow" ng-show="view.viewDetails[wine.id]"/>
+    <img src="../images/down_arrow.png" class="arrow" alt="down arrow" ng-hide="view.viewDetails[wine._id]"/>
+    <img src="../images/up_arrow.png" class="arrow" alt="up arrow" ng-show="view.viewDetails[wine._id]"/>
   </div>
 
   <div class="wineDetails" ng-show="view.viewDetails[wine._id]">
@@ -22,7 +22,7 @@
           {{wine.tastingNotes}}
         </span>
       </p>
-      <select class="browser-default quantityDropDown" ng-model="view.addQuantity">
+      <select class="browser-default quantityDropDownCart" ng-model="view.addQuantity[wine._id]">
         <option value="" disabled selected>Quantity</option>
         <option value="1">1</option>
         <option value="2">2</option>

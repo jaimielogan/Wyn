@@ -1,0 +1,24 @@
+.header{
+  border-bottom: 1px solid lightgrey;
+  width: 1000px;
+}
+
+.about{
+  font-weight: 200;
+  margin: 40px;
+}
+
+.contact{
+  margin-left: 25px;
+  padding-top: 25px;
+}
+
+.fa {
+  text-decoration: none;
+  color: #b71c1c;
+}
+
+.contact a{
+  margin: 15px;
+  font-size: 25px;
+}

@@ -4,16 +4,85 @@
 }
 
 .cartBrand{
-  font-weight: 100;
-  margin: 20px;
+  font-weight: 200;
+  margin: 40px;
 }
+
 
 .cartWine{
   border-bottom: 1px solid lightgrey;
 }
 
+.cartWine:first-child{
+  margin-top: 20px;
+}
+
 .cartTotalDisplay{
   font-weight: bold;
   margin-top: 10px;
-  border-top: 1px solid lightgrey;
+}
+
+.wineImageCart{
+  width: 150px;
+}
+
+.quantityDropDown,
+.subtotal{
+  margin-top: 30px;
+}
+
+.updateCart{
+  margin: 10px 0;
+  font-size: 12px;
+  padding: 0;
+  width: 145.5px;
+  box-shadow: none;
+}
+
+.updateCart:first-child{
+  margin-top: 20px;
+}
+
+.updateCart:last-child{
+  margin-top: 5px;
+}
+
+.subtotal,
+.quantityDiv{
+  align-items: center;
+}
+
+.floatRight{
+  float: right;
+}
+
+.continue{
+  margin: 10px 0;
+  font-size: 12px;
+  font-weight: lighter;
+  padding: 0;
+  width: 170px;
+  box-shadow: none;
+}
+
+.continue:first-child{
+  margin-top: 15px;
+}
+
+.continue:last-child{
+  margin-top: 15px;
+}
+
+.continueShopping{
+  margin: 0 40px;
+  font-size: 12px;
+  font-weight: lighter;
+  padding: 0;
+  width: 170px;
+  box-shadow: none;
+}
+
+.checkoutStatement{
+  font-weight: lighter;
+  width: 170px;
 }

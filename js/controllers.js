@@ -24,7 +24,7 @@ angular.module('wyn')
   $scope.view.cart = wynService.cart;
   $scope.view.cartTotal = {};
   $scope.addToCart = function(wineID){
-    var quantity = $scope.view.addQuantity;
+    var quantity = $scope.view.addQuantity[wineID];
     wynService.addToCart(wineID,quantity);
     $scope.toggleDetails(wineID);
     $scope.view.cartTotal = wynService.cartSubtotal();
@@ -36,4 +36,21 @@ angular.module('wyn')
   // wine data
   $scope.view.wineData = wynService.wineData;
   $scope.view.cartTotal = wynService.cartSubtotal();
+  $scope.view.showCheckoutStatement = false;
+  $scope.updateQuantity = function(wineID){
+    var newQuantity = $scope.view.updateQuantity[wineID];
+    wynService.updateCart(wineID, newQuantity);
+    $scope.view.cartTotal = wynService.cartSubtotal();
+  };
+
+  $scope.removeFromCart = function(wineID){
+    wynService.removeFromCart(wineID);
+    $scope.view.cartTotal = wynService.cartSubtotal();
+    $scope.view.wineData = wynService.wineData;
+  };
+
+  $scope.toggleCheckout = function(){
+    $scope.view.showCheckoutStatement = !$scope.view.showCheckoutStatement;
+  };
+
 });

@@ -1,34 +1,59 @@
-<p>
-  {{view.cartTotal}}
-</p>
-
-<p>
-  {{view.wineData}}
-</p>
+<div ng-show="view.cartTotal.quantityTotal == '0'">
+  <h5 class="cartBrand">There is nothing in your cart currently! Why don't you go find some wine?</h5>
+  <a href="/">
+    <button class="btn waves-effect waves-light red darken-4 continueShopping" type="button" name="action">Continue Shopping</button>
+  </a>
+</div>
 
 <div ng-repeat="wine in view.wineData">
   <div class="row container cartWine" ng-show="wine.quantity > 0">
     <div class="col s5">
-      <img class="wineImage" src="{{wine.imageUrl}}" alt="" />
-      <h5 class="lightweight wineName">{{wine.name}}</h5>
+      <img class="wineImageCart" src="{{wine.imageUrl}}" alt="" />
+      <h5 class="lightweight wineNameCart">{{wine.name}}</h5>
     </div>
-    <div class="col s5 offset-">
-      <h5>
-        {{wine.quantity}}
+    <div class="col s2 quantityDiv">
+
+      <select class="browser-default quantityDropDown" ng-model="view.updateQuantity[wine._id]" ng-init="view.updateQuantity[wine._id] = wine.quantity">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6 (1 case)</option>
+      </select>
+
+      <div class="updateButtons">
+        <button class="btn waves-effect waves-light red darken-4 updateCart" type="button" name="action" ng-click="updateQuantity(wine._id)">Update Quantity</button>
+        <button class="btn waves-effect waves-light red darken-4 updateCart" type="button" name="action" ng-click="removeFromCart(wine._id)">Remove From Cart</button>
+      </div>
+
+    </div>
+    <div class="col s2 offset-s3">
+      <h5 class="floatRight subtotal">
+        {{ wine.price * wine.quantity | fractionCurrency | currency}}
       </h5>
-      <span>
-        <h5>
-          {{ wine.price * wine.quantity | fractionCurrency | currency}}
-        </h5>
-      </span>
     </div>
   </div>
 </div>
 
-<div class="row container cartTotalDisplay">
-  <div class="col s2 offset-s6">
-    <h4>
-      {{view.cartTotal.totalCost}}
+<div ng-hide="view.cartTotal.quantityTotal == '0'" class="row container">
+  <div class="col s2 offset-s10">
+    <h4 class="floatRight">
+      {{view.cartTotal.totalCost | currency}}
     </h4>
+  </div>
+</div>
+
+<div class="row container cartTotalDisplay">
+  <div class="col s2 offset-s10">
+    <div class="updateButtons">
+      <a href="/">
+        <button ng-hide="view.cartTotal.quantityTotal == '0'" class="btn waves-effect waves-light red darken-4 continue" type="button" name="action">Continue Shopping</button>
+      </a>
+      <button ng-hide="view.cartTotal.quantityTotal == '0'" class="btn waves-effect waves-light red darken-4 continue" type="button" name="action" ng-click="toggleCheckout()">Proceed to Checkout</button>
+      <p ng-show="view.showCheckoutStatement" class="checkoutStatement">
+        Sorry, I unfortunantely can't actually sell you this wine. Thank you for checking out my site though! :)
+      </p>
+    </div>
   </div>
 </div>
