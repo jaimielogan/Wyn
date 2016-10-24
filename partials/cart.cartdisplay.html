@@ -13,13 +13,13 @@
     </div>
     <div class="col s2 quantityDiv">
 
-      <select class="browser-default quantityDropDown" ng-model="view.updateQuantity[wine._id]" ng-init="view.updateQuantity[wine._id] = wine.quantity">
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6 (1 case)</option>
+      <select class="browser-default quantityDropDown" ng-model="view.updateQuantity[wine._id]">
+        <option value="1" ng-selected="{{wine.quantity == 1}}">1</option>
+        <option value="2" ng-selected="{{wine.quantity == 2}}">2</option>
+        <option value="3" ng-selected="{{wine.quantity == 3}}">3</option>
+        <option value="4" ng-selected="{{wine.quantity == 4}}">4</option>
+        <option value="5" ng-selected="{{wine.quantity == 5}}">5</option>
+        <option value="6" ng-selected="{{wine.quantity == 6}}">6 (1 case)</option>
       </select>
 
       <div class="updateButtons">
